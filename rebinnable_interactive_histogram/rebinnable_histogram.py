@@ -25,13 +25,14 @@ def rebinnable_interactive_histogram(series, initial_bin_width=10):
         max=30,
         step=1,
         description="Bin width:",
-        readout_format=".0f"  # display as integer
+        readout_format=".0f",  # display as integer
     )
 
     histogram_object = figure_widget.data[0]
 
     def set_bin_size(change):
         histogram_object.xbins = {"size": change["new"]}
+
     bin_slider.observe(set_bin_size, names="value")
 
     output_widget = widgets.VBox([figure_widget, bin_slider])
@@ -50,11 +51,7 @@ def rebinnable_interactive_histogram(series, initial_bin_width=10):
     trace = go.Histogram(x=series, xbins={"size": initial_bin_width})
     figure_widget = go.FigureWidget(
         data=[trace],
-        layout=go.Layout(
-            yaxis={"title": "Count"},
-            xaxis={"title": "x"},
-            bargap=0.05,
-        )
+        layout=go.Layout(yaxis={"title": "Count"}, xaxis={"title": "x"}, bargap=0.05,),
     )
 
     bin_slider = widgets.FloatSlider(
@@ -63,13 +60,14 @@ def rebinnable_interactive_histogram(series, initial_bin_width=10):
         max=30,
         step=1,
         description="Bin width:",
-        readout_format=".0f"  # display as integer
+        readout_format=".0f",  # display as integer
     )
 
     histogram_object = figure_widget.data[0]
 
     def set_bin_size(change):
         histogram_object.xbins = {"size": change["new"]}
+
     bin_slider.observe(set_bin_size, names="value")
 
     output_widget = widgets.VBox([figure_widget, bin_slider])

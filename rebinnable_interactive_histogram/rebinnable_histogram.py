@@ -9,7 +9,7 @@ import plotly.graph_objs as go
 import ipywidgets as widgets
 
 # %%
-df = pd.read_csv("data/flights.csv")
+df = pd.read_csv("../data/flights.csv")
 
 
 # %% [markdown]
